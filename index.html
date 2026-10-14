@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semar Outdoor | Explore Without Limits</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --green: #214e34;
+            --lime: #d5f36b;
+            --cream: #f7f7f0;
+            --dark: #19241c;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+        }
+
+        h1, h2, h3, .brand {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .navbar {
+            background: rgba(247,247,240,.95);
+            padding: 18px 0;
+        }
+
+        .brand {
+            font-size: 25px;
+            font-weight: 800;
+            color: var(--green);
+        }
+
+        .nav-link {
+            color: #526056;
+            font-weight: 600;
+            margin: 0 8px;
+        }
+
+        .btn-main {
+            background: var(--green);
+            color: white;
+            border-radius: 30px;
+            padding: 12px 23px;
+            font-weight: 700;
+        }
+
+        .btn-main:hover {
+            background: #326b48;
+            color: white;
+        }
+
+        .hero {
+            padding: 65px 0 75px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: #e8efda;
+            color: var(--green);
+            border-radius: 30px;
+            padding: 9px 15px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-size: clamp(43px, 6vw, 76px);
+            font-weight: 800;
+            line-height: 1.06;
+            letter-spacing: -2px;
+            margin: 22px 0;
+        }
+
+        .hero h1 span { color: #729344; }
+
+        .hero p {
+            color: #687269;
+            font-size: 17px;
+            line-height: 1.8;
+            max-width: 470px;
+        }
+
+        .hero-image {
+            min-height: 460px;
+            border-radius: 28px;
+            background:
+                linear-gradient(0deg, rgba(14,35,20,.2), transparent 60%),
+                url('https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=1100&q=85')
+                center/cover;
+            position: relative;
+        }
+
+        .floating-card {
+            position: absolute;
+            bottom: 22px;
+            left: 22px;
+            right: 22px;
+            background: rgba(255,255,255,.94);
+            border-radius: 18px;
+            padding: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section { padding: 75px 0; }
+
+        .section-title {
+            font-size: clamp(30px, 4vw, 43px);
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .muted { color: #778077; }
+
+        .product-card {
+            border: 1px solid #e9eae2;
+            border-radius: 20px;
+            overflow: hidden;
+            background: white;
+            height: 100%;
+            transition: .25s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 35px #263a2512;
+        }
+
+        .product-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .product-content { padding: 20px; }
+
+        .category {
+            color: #66823e;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--green);
+        }
+
+        .feature-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            background: #e9efdc;
+            color: var(--green);
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card {
+            padding: 27px;
+            border-radius: 20px;
+            background: white;
+            height: 100%;
+        }
+
+        .cta {
+            border-radius: 28px;
+            background: var(--green);
+            color: white;
+            padding: 55px;
+            overflow: hidden;
+        }
+
+        .cta p { color: #d0dbd0; }
+
+        footer {
+            background: #17251b;
+            color: white;
+            padding: 45px 0 25px;
+        }
+
+        footer a {
+            color: #c4d0c5;
+            text-decoration: none;
+        }
+
+        .stat {
+            border-left: 2px solid #dfe5d8;
+            padding-left: 20px;
+        }
+
+        @media(max-width: 768px) {
+            .hero { padding-top: 35px; }
+            .hero-image { min-height: 350px; margin-top: 30px; }
+            .section { padding: 55px 0; }
+            .cta { padding: 30px 24px; }
+            .stat { margin-top: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand brand" href="#">
+            <i class="fa-solid fa-mountain-sun me-2"></i>semar<span style="color:#8aa64c">.</span>
+        </a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="#alat">Daftar Alat</a></li>
+                <li class="nav-item"><a class="nav-link" href="#layanan">Keunggulan</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tentang">Tentang Kami</a></li>
+            </ul>
+
+            <a href="#alat" class="btn btn-main">
+                Mulai Sewa <i class="fa-solid fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="beranda">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+                <span class="hero-label">
+                    <i class="fa-solid fa-leaf me-2"></i>
+                    TEMUKAN PETUALANGANMU
+                </span>
+
+                <h1>Alam Memanggil,<br><span>Kami Siapkan.</span></h1>
+
+                <p>
+                    Siapkan perjalanan terbaikmu bersama perlengkapan
+                    outdoor berkualitas. Sewa lebih mudah, praktis,
+                    dan ramah di kantong.
+                </p>
+
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a href="#alat" class="btn btn-main">
+                        Jelajahi Peralatan <i class="fa-solid fa-arrow-right ms-2"></i>
+                    </a>
+                    <a href="#tentang" class="btn btn-outline-dark rounded-pill px-4 py-3">
+                        Tentang Kami
+                    </a>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-4">
+                        <h3 class="fw-bold mb-1">120+</h3>
+                        <small class="muted">Perlengkapan</small>
+                    </div>
+                    <div class="col-4">
+                        <h3 class="fw-bold mb-1">850+</h3>
+                        <small class="muted">Pelanggan</small>
+                    </div>
+                    <div class="col-4">
+                        <h3 class="fw-bold mb-1">4.9/5</h3>
+                        <small class="muted">Rating</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <div class="floating-card">
+                        <div>
+                            <small class="muted">Waktunya bertualang</small>
+                            <h5 class="fw-bold mb-0">Your next adventure starts here.</h5>
+                        </div>
+                        <div class="rounded-circle p-3" style="background:var(--lime)">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUK -->
+<section class="section" id="alat" style="background:#fff">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-end mb-4 gap-3">
+            <div>
+                <span class="category">PILIH PERLENGKAPAN</span>
+                <h2 class="section-title mt-2">Teman Setia Petualangan</h2>
+                <p class="muted mb-0">Peralatan pilihan untuk perjalanan tanpa batas.</p>
+            </div>
+            <a href="#alat" class="btn btn-outline-dark rounded-pill px-4">
+                Lihat Semua <i class="fa-solid fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+
+        <div class="row g-4" id="product-list"></div>
+    </div>
+</section>
+
+<!-- KEUNGGULAN -->
+<section class="section" id="layanan">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="category">KENAPA SEMAR OUTDOOR?</span>
+            <h2 class="section-title mt-2">Sewa Jadi Lebih Mudah</h2>
+            <p class="muted">Semua kebutuhan petualanganmu dalam satu tempat.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-wallet"></i></div>
+                    <h5 class="fw-bold">Harga Bersahabat</h5>
+                    <p class="muted mb-0">Nikmati petualangan dengan biaya sewa yang terjangkau.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-tent"></i></div>
+                    <h5 class="fw-bold">Pilihan Lengkap</h5>
+                    <p class="muted mb-0">Beragam perlengkapan untuk camping, hiking, dan kegiatan outdoor.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
+                    <h5 class="fw-bold">Proses Praktis</h5>
+                    <p class="muted mb-0">Temukan alat yang dibutuhkan dengan proses pemesanan yang mudah.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section pt-0" id="tentang">
+    <div class="container">
+        <div class="cta">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <span class="text-uppercase small fw-bold" style="color:var(--lime)">
+                        SAATNYA KELUAR DAN MENJELAJAH
+                    </span>
+                    <h2 class="display-5 fw-bold mt-3">Petualangan Hebat<br>Dimulai dari Sini.</h2>
+                    <p class="mt-3 mb-0">
+                        Jangan biarkan perlengkapan menghalangi perjalananmu.
+                        Temukan kebutuhan outdoor-mu bersama Semar Outdoor.
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="#alat" class="btn rounded-pill px-4 py-3 fw-bold"
+                       style="background:var(--lime);color:#19241c">
+                        Cari Peralatan <i class="fa-solid fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="brand text-white mb-3">
+                    <i class="fa-solid fa-mountain-sun me-2"></i>semar.
+                </div>
+                <p style="color:#c4d0c5;max-width:380px">
+                    Partner perlengkapan outdoor untuk setiap perjalanan,
+                    dari camping santai hingga petualangan di alam terbuka.
+                </p>
+            </div>
+            <div class="col-md-3">
+                <h6 class="fw-bold mb-3">Navigasi</h6>
+                <p><a href="#beranda">Beranda</a></p>
+                <p><a href="#alat">Daftar Alat</a></p>
+                <p><a href="#layanan">Keunggulan</a></p>
+            </div>
+            <div class="col-md-3">
+                <h6 class="fw-bold mb-3">Hubungi Kami</h6>
+                <p><i class="fa-brands fa-whatsapp me-2"></i> 08xx-xxxx-xxxx</p>
+                <p><i class="fa-solid fa-location-dot me-2"></i> Tasikmalaya, Indonesia</p>
+                <p><i class="fa-brands fa-instagram me-2"></i> @semaroutdoor</p>
+            </div>
+        </div>
+        <hr style="border-color:#405044">
+        <div class="d-flex flex-wrap justify-content-between gap-2">
+            <small style="color:#c4d0c5">© 2026 Semar Outdoor. All rights reserved.</small>
+            <small style="color:#c4d0c5">Explore Without Limits.</small>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// DATA DUMMY — silakan ganti sesuai kebutuhan
+const alat = [
+    {
+        nama: "Tenda Camping 4P",
+        kategori: "Tenda",
+        harga: 50000,
+        gambar: "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        nama: "Carrier Gunung 60L",
+        kategori: "Tas Gunung",
+        harga: 35000,
+        gambar: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        nama: "Sleeping Bag",
+        kategori: "Perlengkapan Tidur",
+        harga: 15000,
+        gambar: "https://images.unsplash.com/photo-1504851149312-7a075b496cc7?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        nama: "Peralatan Camping",
+        kategori: "Paket Outdoor",
+        harga: 25000,
+        gambar: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        nama: "Perlengkapan Hiking",
+        kategori: "Hiking",
+        harga: 20000,
+        gambar: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        nama: "Camping Set",
+        kategori: "Peralatan Outdoor",
+        harga: 40000,
+        gambar: "https://images.unsplash.com/photo- camping?auto=format&fit=crop&w=700&q=80"
+    }
+];
+
+const formatRupiah = angka =>
+    new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        maximumFractionDigits: 0
+    }).format(angka);
+
+document.getElementById("product-list").innerHTML = alat.map(item => `
+    <div class="col-sm-6 col-lg-4">
+        <div class="product-card">
+            <img src="${item.gambar}"
+                 class="product-img"
+                 alt="${item.nama}"
+                 onerror="this.src='https://placehold.co/700x450/e9efdc/214e34?text=Semar+Outdoor'">
+
+            <div class="product-content">
+                <div class="category mb-2">${item.kategori}</div>
+                <h5 class="fw-bold">${item.nama}</h5>
+
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <div>
+                        <div class="price">${formatRupiah(item.harga)}</div>
+                        <small class="muted">per hari</small>
+                    </div>
+
+                    <a href="#tentang"
+                       class="btn btn-main"
+                       aria-label="Informasi ${item.nama}">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+`).join("");
+</script>
+
+</body>
+</html>
